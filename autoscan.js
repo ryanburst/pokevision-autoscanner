@@ -168,7 +168,6 @@ class PokeScan {
     var icons = $('.leaflet-marker-icon');
     var rareFound = false;
     var rares = [];
-    console.log('SCanning',icons.length);
     for(var i in icons){
       var re = /([\w+]+).\w+\s*$/;
       var str = icons[i].src;
