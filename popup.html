@@ -1,24 +1,188 @@
 <!doctype html>
 <html>
-  <head>
-    <title>PokéVision Autoscan Extension</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
-  </head>
-  <body>
-    <p>This extension is passive and works automatically when visiting https://pokevision.com</p>
-    <p>Features to come.</p>
-  </body>
+<head>
+  <title>PokéVision Autoscan Extension</title>
+  <style>
+    html,
+    body {
+      width: 300px;
+      height: 400px;
+    }
+    body {
+      padding: 10px;
+      font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+      font-size: 100%;
+    }
+    #status {
+      /* avoid an excessively wide status text */
+      white-space: pre;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 400px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+</head>
+<body>
+  <p>This extension is passive and works automatically when visiting https://pokevision.com</p>
+  <p>
+    <select class="selectpicker" multiple data-size="8" data-actions-box="true">
+      <option value="63" style="background-image:url('https://ugc.pokevision.com/images/pokemon/63.png');" selected>Abra</option>
+      <option value="142" style="background-image:url('https://ugc.pokevision.com/images/pokemon/142.png');" selected>Aerodactyl</option>
+      <option value="65" style="background-image:url('https://ugc.pokevision.com/images/pokemon/65.png');" selected>Alakazam</option>
+      <option value="24" style="background-image:url('https://ugc.pokevision.com/images/pokemon/24.png');" selected>Arbok</option>
+      <option value="59" style="background-image:url('https://ugc.pokevision.com/images/pokemon/59.png');" selected>Arcanine</option>
+      <option value="144" style="background-image:url('https://ugc.pokevision.com/images/pokemon/144.png');" selected>Articuno</option>
+      <option value="15" style="background-image:url('https://ugc.pokevision.com/images/pokemon/15.png');" selected>Beedrill</option>
+      <option value="69" style="background-image:url('https://ugc.pokevision.com/images/pokemon/69.png');" selected>Bellsprout</option>
+      <option value="9" style="background-image:url('https://ugc.pokevision.com/images/pokemon/9.png');" selected>Blastoise</option>
+      <option value="1" style="background-image:url('https://ugc.pokevision.com/images/pokemon/1.png');" selected>Bulbasaur</option>
+      <option value="12" style="background-image:url('https://ugc.pokevision.com/images/pokemon/12.png');" selected>Butterfree</option>
+      <option value="10" style="background-image:url('https://ugc.pokevision.com/images/pokemon/10.png');" selected>Caterpie</option>
+      <option value="113" style="background-image:url('https://ugc.pokevision.com/images/pokemon/113.png');" selected>Chansey</option>
+      <option value="6" style="background-image:url('https://ugc.pokevision.com/images/pokemon/6.png');" selected>Charizard</option>
+      <option value="4" style="background-image:url('https://ugc.pokevision.com/images/pokemon/4.png');" selected>Charmander</option>
+      <option value="5" style="background-image:url('https://ugc.pokevision.com/images/pokemon/5.png');" selected>Charmeleon</option>
+      <option value="36" style="background-image:url('https://ugc.pokevision.com/images/pokemon/36.png');" selected>Clefable</option>
+      <option value="35" style="background-image:url('https://ugc.pokevision.com/images/pokemon/35.png');" selected>Clefairy</option>
+      <option value="91" style="background-image:url('https://ugc.pokevision.com/images/pokemon/91.png');" selected>Cloyster</option>
+      <option value="104" style="background-image:url('https://ugc.pokevision.com/images/pokemon/104.png');" selected>Cubone</option>
+      <option value="87" style="background-image:url('https://ugc.pokevision.com/images/pokemon/87.png');" selected>Dewgong</option>
+      <option value="50" style="background-image:url('https://ugc.pokevision.com/images/pokemon/50.png');" selected>Diglett</option>
+      <option value="132" style="background-image:url('https://ugc.pokevision.com/images/pokemon/132.png');" selected>Ditto</option>
+      <option value="85" style="background-image:url('https://ugc.pokevision.com/images/pokemon/85.png');" selected>Dodrio</option>
+      <option value="84" style="background-image:url('https://ugc.pokevision.com/images/pokemon/84.png');" selected>Doduo</option>
+      <option value="148" style="background-image:url('https://ugc.pokevision.com/images/pokemon/148.png');" selected>Dragonair</option>
+      <option value="149" style="background-image:url('https://ugc.pokevision.com/images/pokemon/149.png');" selected>Dragonite</option>
+      <option value="147" style="background-image:url('https://ugc.pokevision.com/images/pokemon/147.png');" selected>Dratini</option>
+      <option value="96" style="background-image:url('https://ugc.pokevision.com/images/pokemon/96.png');" selected>Drowzee</option>
+      <option value="51" style="background-image:url('https://ugc.pokevision.com/images/pokemon/51.png');" selected>Dugtrio</option>
+      <option value="133" style="background-image:url('https://ugc.pokevision.com/images/pokemon/133.png');" selected>Eevee</option>
+      <option value="23" style="background-image:url('https://ugc.pokevision.com/images/pokemon/23.png');" selected>Ekans</option>
+      <option value="125" style="background-image:url('https://ugc.pokevision.com/images/pokemon/125.png');" selected>Electabuzz</option>
+      <option value="101" style="background-image:url('https://ugc.pokevision.com/images/pokemon/101.png');" selected>Electrode</option>
+      <option value="102" style="background-image:url('https://ugc.pokevision.com/images/pokemon/102.png');" selected>Exeggcute</option>
+      <option value="103" style="background-image:url('https://ugc.pokevision.com/images/pokemon/103.png');" selected>Exeggutor</option>
+      <option value="83" style="background-image:url('https://ugc.pokevision.com/images/pokemon/83.png');" selected>Farfetch&#039;d</option>
+      <option value="22" style="background-image:url('https://ugc.pokevision.com/images/pokemon/22.png');" selected>Fearow</option>
+      <option value="136" style="background-image:url('https://ugc.pokevision.com/images/pokemon/136.png');" selected>Flareon</option>
+      <option value="92" style="background-image:url('https://ugc.pokevision.com/images/pokemon/92.png');" selected>Gastly</option>
+      <option value="94" style="background-image:url('https://ugc.pokevision.com/images/pokemon/94.png');" selected>Gengar</option>
+      <option value="74" style="background-image:url('https://ugc.pokevision.com/images/pokemon/74.png');" selected>Geodude</option>
+      <option value="44" style="background-image:url('https://ugc.pokevision.com/images/pokemon/44.png');" selected>Gloom</option>
+      <option value="42" style="background-image:url('https://ugc.pokevision.com/images/pokemon/42.png');" selected>Golbat</option>
+      <option value="118" style="background-image:url('https://ugc.pokevision.com/images/pokemon/118.png');" selected>Goldeen</option>
+      <option value="55" style="background-image:url('https://ugc.pokevision.com/images/pokemon/55.png');" selected>Golduck</option>
+      <option value="76" style="background-image:url('https://ugc.pokevision.com/images/pokemon/76.png');" selected>Golem</option>
+      <option value="75" style="background-image:url('https://ugc.pokevision.com/images/pokemon/75.png');" selected>Graveler</option>
+      <option value="88" style="background-image:url('https://ugc.pokevision.com/images/pokemon/88.png');" selected>Grimer</option>
+      <option value="58" style="background-image:url('https://ugc.pokevision.com/images/pokemon/58.png');" selected>Growlithe</option>
+      <option value="130" style="background-image:url('https://ugc.pokevision.com/images/pokemon/130.png');" selected>Gyarados</option>
+      <option value="93" style="background-image:url('https://ugc.pokevision.com/images/pokemon/93.png');" selected>Haunter</option>
+      <option value="107" style="background-image:url('https://ugc.pokevision.com/images/pokemon/107.png');" selected>Hitmonchan</option>
+      <option value="106" style="background-image:url('https://ugc.pokevision.com/images/pokemon/106.png');" selected>Hitmonlee</option>
+      <option value="116" style="background-image:url('https://ugc.pokevision.com/images/pokemon/116.png');" selected>Horsea</option>
+      <option value="97" style="background-image:url('https://ugc.pokevision.com/images/pokemon/97.png');" selected>Hypno</option>
+      <option value="2" style="background-image:url('https://ugc.pokevision.com/images/pokemon/2.png');" selected>Ivysaur</option>
+      <option value="39" style="background-image:url('https://ugc.pokevision.com/images/pokemon/39.png');" selected>Jigglypuff</option>
+      <option value="135" style="background-image:url('https://ugc.pokevision.com/images/pokemon/135.png');" selected>Jolteon</option>
+      <option value="124" style="background-image:url('https://ugc.pokevision.com/images/pokemon/124.png');" selected>Jynx</option>
+      <option value="140" style="background-image:url('https://ugc.pokevision.com/images/pokemon/140.png');" selected>Kabuto</option>
+      <option value="141" style="background-image:url('https://ugc.pokevision.com/images/pokemon/141.png');" selected>Kabutops</option>
+      <option value="64" style="background-image:url('https://ugc.pokevision.com/images/pokemon/64.png');" selected>Kadabra</option>
+      <option value="14" style="background-image:url('https://ugc.pokevision.com/images/pokemon/14.png');" selected>Kakuna</option>
+      <option value="115" style="background-image:url('https://ugc.pokevision.com/images/pokemon/115.png');" selected>Kangaskhan</option>
+      <option value="99" style="background-image:url('https://ugc.pokevision.com/images/pokemon/99.png');" selected>Kingler</option>
+      <option value="109" style="background-image:url('https://ugc.pokevision.com/images/pokemon/109.png');" selected>Koffing</option>
+      <option value="98" style="background-image:url('https://ugc.pokevision.com/images/pokemon/98.png');" selected>Krabby</option>
+      <option value="131" style="background-image:url('https://ugc.pokevision.com/images/pokemon/131.png');" selected>Lapras</option>
+      <option value="108" style="background-image:url('https://ugc.pokevision.com/images/pokemon/108.png');" selected>Lickitung</option>
+      <option value="68" style="background-image:url('https://ugc.pokevision.com/images/pokemon/68.png');" selected>Machamp</option>
+      <option value="67" style="background-image:url('https://ugc.pokevision.com/images/pokemon/67.png');" selected>Machoke</option>
+      <option value="66" style="background-image:url('https://ugc.pokevision.com/images/pokemon/66.png');" selected>Machop</option>
+      <option value="129" style="background-image:url('https://ugc.pokevision.com/images/pokemon/129.png');" selected>Magikarp</option>
+      <option value="126" style="background-image:url('https://ugc.pokevision.com/images/pokemon/126.png');" selected>Magmar</option>
+      <option value="81" style="background-image:url('https://ugc.pokevision.com/images/pokemon/81.png');" selected>Magnemite</option>
+      <option value="82" style="background-image:url('https://ugc.pokevision.com/images/pokemon/82.png');" selected>Magneton</option>
+      <option value="56" style="background-image:url('https://ugc.pokevision.com/images/pokemon/56.png');" selected>Mankey</option>
+      <option value="105" style="background-image:url('https://ugc.pokevision.com/images/pokemon/105.png');" selected>Marowak</option>
+      <option value="52" style="background-image:url('https://ugc.pokevision.com/images/pokemon/52.png');" selected>Meowth</option>
+      <option value="11" style="background-image:url('https://ugc.pokevision.com/images/pokemon/11.png');" selected>Metapod</option>
+      <option value="151" style="background-image:url('https://ugc.pokevision.com/images/pokemon/151.png');" selected>Mew</option>
+      <option value="150" style="background-image:url('https://ugc.pokevision.com/images/pokemon/150.png');" selected>Mewtwo</option>
+      <option value="146" style="background-image:url('https://ugc.pokevision.com/images/pokemon/146.png');" selected>Moltres</option>
+      <option value="122" style="background-image:url('https://ugc.pokevision.com/images/pokemon/122.png');" selected>Mr. Mime</option>
+      <option value="89" style="background-image:url('https://ugc.pokevision.com/images/pokemon/89.png');" selected>Muk</option>
+      <option value="34" style="background-image:url('https://ugc.pokevision.com/images/pokemon/34.png');" selected>Nidoking</option>
+      <option value="31" style="background-image:url('https://ugc.pokevision.com/images/pokemon/31.png');" selected>Nidoqueen</option>
+      <option value="29" style="background-image:url('https://ugc.pokevision.com/images/pokemon/29.png');" selected>Nidoran♀</option>
+      <option value="32" style="background-image:url('https://ugc.pokevision.com/images/pokemon/32.png');" selected>Nidoran♂</option>
+      <option value="30" style="background-image:url('https://ugc.pokevision.com/images/pokemon/30.png');" selected>Nidorina</option>
+      <option value="33" style="background-image:url('https://ugc.pokevision.com/images/pokemon/33.png');" selected>Nidorino</option>
+      <option value="38" style="background-image:url('https://ugc.pokevision.com/images/pokemon/38.png');" selected>Ninetales</option>
+      <option value="43" style="background-image:url('https://ugc.pokevision.com/images/pokemon/43.png');" selected>Oddish</option>
+      <option value="138" style="background-image:url('https://ugc.pokevision.com/images/pokemon/138.png');" selected>Omanyte</option>
+      <option value="139" style="background-image:url('https://ugc.pokevision.com/images/pokemon/139.png');" selected>Omastar</option>
+      <option value="95" style="background-image:url('https://ugc.pokevision.com/images/pokemon/95.png');" selected>Onix</option>
+      <option value="46" style="background-image:url('https://ugc.pokevision.com/images/pokemon/46.png');" selected>Paras</option>
+      <option value="47" style="background-image:url('https://ugc.pokevision.com/images/pokemon/47.png');" selected>Parasect</option>
+      <option value="53" style="background-image:url('https://ugc.pokevision.com/images/pokemon/53.png');" selected>Persian</option>
+      <option value="18" style="background-image:url('https://ugc.pokevision.com/images/pokemon/18.png');" selected>Pidgeot</option>
+      <option value="17" style="background-image:url('https://ugc.pokevision.com/images/pokemon/17.png');" selected>Pidgeotto</option>
+      <option value="16" style="background-image:url('https://ugc.pokevision.com/images/pokemon/16.png');" selected>Pidgey</option>
+      <option value="25" style="background-image:url('https://ugc.pokevision.com/images/pokemon/25.png');" selected>Pikachu</option>
+      <option value="127" style="background-image:url('https://ugc.pokevision.com/images/pokemon/127.png');" selected>Pinsir</option>
+      <option value="60" style="background-image:url('https://ugc.pokevision.com/images/pokemon/60.png');" selected>Poliwag</option>
+      <option value="61" style="background-image:url('https://ugc.pokevision.com/images/pokemon/61.png');" selected>Poliwhirl</option>
+      <option value="62" style="background-image:url('https://ugc.pokevision.com/images/pokemon/62.png');" selected>Poliwrath</option>
+      <option value="77" style="background-image:url('https://ugc.pokevision.com/images/pokemon/77.png');" selected>Ponyta</option>
+      <option value="137" style="background-image:url('https://ugc.pokevision.com/images/pokemon/137.png');" selected>Porygon</option>
+      <option value="57" style="background-image:url('https://ugc.pokevision.com/images/pokemon/57.png');" selected>Primeape</option>
+      <option value="54" style="background-image:url('https://ugc.pokevision.com/images/pokemon/54.png');" selected>Psyduck</option>
+      <option value="26" style="background-image:url('https://ugc.pokevision.com/images/pokemon/26.png');" selected>Raichu</option>
+      <option value="78" style="background-image:url('https://ugc.pokevision.com/images/pokemon/78.png');" selected>Rapidash</option>
+      <option value="20" style="background-image:url('https://ugc.pokevision.com/images/pokemon/20.png');" selected>Raticate</option>
+      <option value="19" style="background-image:url('https://ugc.pokevision.com/images/pokemon/19.png');" selected>Rattata</option>
+      <option value="112" style="background-image:url('https://ugc.pokevision.com/images/pokemon/112.png');" selected>Rhydon</option>
+      <option value="111" style="background-image:url('https://ugc.pokevision.com/images/pokemon/111.png');" selected>Rhyhorn</option>
+      <option value="27" style="background-image:url('https://ugc.pokevision.com/images/pokemon/27.png');" selected>Sandshrew</option>
+      <option value="28" style="background-image:url('https://ugc.pokevision.com/images/pokemon/28.png');" selected>Sandslash</option>
+      <option value="123" style="background-image:url('https://ugc.pokevision.com/images/pokemon/123.png');" selected>Scyther</option>
+      <option value="117" style="background-image:url('https://ugc.pokevision.com/images/pokemon/117.png');" selected>Seadra</option>
+      <option value="119" style="background-image:url('https://ugc.pokevision.com/images/pokemon/119.png');" selected>Seaking</option>
+      <option value="86" style="background-image:url('https://ugc.pokevision.com/images/pokemon/86.png');" selected>Seel</option>
+      <option value="90" style="background-image:url('https://ugc.pokevision.com/images/pokemon/90.png');" selected>Shellder</option>
+      <option value="80" style="background-image:url('https://ugc.pokevision.com/images/pokemon/80.png');" selected>Slowbro</option>
+      <option value="79" style="background-image:url('https://ugc.pokevision.com/images/pokemon/79.png');" selected>Slowpoke</option>
+      <option value="143" style="background-image:url('https://ugc.pokevision.com/images/pokemon/143.png');" selected>Snorlax</option>
+      <option value="21" style="background-image:url('https://ugc.pokevision.com/images/pokemon/21.png');" selected>Spearow</option>
+      <option value="7" style="background-image:url('https://ugc.pokevision.com/images/pokemon/7.png');" selected>Squirtle</option>
+      <option value="121" style="background-image:url('https://ugc.pokevision.com/images/pokemon/121.png');" selected>Starmie</option>
+      <option value="120" style="background-image:url('https://ugc.pokevision.com/images/pokemon/120.png');" selected>Staryu</option>
+      <option value="114" style="background-image:url('https://ugc.pokevision.com/images/pokemon/114.png');" selected>Tangela</option>
+      <option value="128" style="background-image:url('https://ugc.pokevision.com/images/pokemon/128.png');" selected>Tauros</option>
+      <option value="72" style="background-image:url('https://ugc.pokevision.com/images/pokemon/72.png');" selected>Tentacool</option>
+      <option value="73" style="background-image:url('https://ugc.pokevision.com/images/pokemon/73.png');" selected>Tentacruel</option>
+      <option value="134" style="background-image:url('https://ugc.pokevision.com/images/pokemon/134.png');" selected>Vaporeon</option>
+      <option value="49" style="background-image:url('https://ugc.pokevision.com/images/pokemon/49.png');" selected>Venomoth</option>
+      <option value="48" style="background-image:url('https://ugc.pokevision.com/images/pokemon/48.png');" selected>Venonat</option>
+      <option value="3" style="background-image:url('https://ugc.pokevision.com/images/pokemon/3.png');" selected>Venusaur</option>
+      <option value="71" style="background-image:url('https://ugc.pokevision.com/images/pokemon/71.png');" selected>Victreebel</option>
+      <option value="45" style="background-image:url('https://ugc.pokevision.com/images/pokemon/45.png');" selected>Vileplume</option>
+      <option value="100" style="background-image:url('https://ugc.pokevision.com/images/pokemon/100.png');" selected>Voltorb</option>
+      <option value="37" style="background-image:url('https://ugc.pokevision.com/images/pokemon/37.png');" selected>Vulpix</option>
+      <option value="8" style="background-image:url('https://ugc.pokevision.com/images/pokemon/8.png');" selected>Wartortle</option>
+      <option value="13" style="background-image:url('https://ugc.pokevision.com/images/pokemon/13.png');" selected>Weedle</option>
+      <option value="70" style="background-image:url('https://ugc.pokevision.com/images/pokemon/70.png');" selected>Weepinbell</option>
+      <option value="110" style="background-image:url('https://ugc.pokevision.com/images/pokemon/110.png');" selected>Weezing</option>
+      <option value="40" style="background-image:url('https://ugc.pokevision.com/images/pokemon/40.png');" selected>Wigglytuff</option>
+      <option value="145" style="background-image:url('https://ugc.pokevision.com/images/pokemon/145.png');" selected>Zapdos</option>
+      <option value="41" style="background-image:url('https://ugc.pokevision.com/images/pokemon/41.png');" selected>Zubat</option>
+    </select>
+  </p>
+  <script src="js/jquery-3.1.0.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+</body>
 </html>
 
