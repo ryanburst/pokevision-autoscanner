@@ -70,7 +70,7 @@ class Messenger {
     }
 
     var notification = new Notification('Notification title', {
-      icon: 'icon.png',
+      icon: 'https://raw.githubusercontent.com/ryanburst/pokevision-autoscanner/master/icon.png',
       body: message,
     });
   }
