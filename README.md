@@ -13,3 +13,6 @@ Do nothing! This extension is currently passive and will run whenever you go to 
 - Off/On Toggle
 - Ability to choose which Pokemon you can be alerted to.
 - Native JS alert/Chrome Notification toggle
+
+## Known Bugs
+- Double Pokemon listing in initial notification.
