@@ -97,8 +97,8 @@ class PokeScan {
     options = options || {};
 
     this.pokedex = {};
-    this.rarePokemon = [1,2,3,4,5,6,7,8,9,25,26,31,34,36,38,42,43,44,45,47,51,53,55,61,62,64,65,68,69,70,71,73,76,78,80,81,82,83,85,86,87,88,89,92,93,94,95,97,99,100,101,103,105,106,107,108,109,110,112,113,114,115,117,119,122,123,124,125,126,127,128,139,141,130,131,132,134,135,136,137,142,143,144,145,146,147,148,149,150,151];
-    this.scanDelay = 10;
+    this.rarePokemon = [1,2,3,4,5,6,7,8,9,25,26,31,34,36,38,42,43,44,45,47,51,53,55,58,61,62,64,65,68,69,70,71,73,76,78,80,81,82,83,85,86,87,88,89,92,93,94,95,97,99,100,101,103,105,106,107,108,109,110,112,113,114,115,117,119,122,123,124,125,126,127,128,139,141,130,131,132,134,135,136,137,142,143,144,145,146,147,148,149,150,151];
+    this.scanDelay = 30;
     this.showAlerts = true;
     this.playSounds = true;
     this.foundRares = [];
@@ -154,7 +154,7 @@ class PokeScan {
     var style = $('<style>.rare{background-color:rgba(0,255,0,.3);border-radius:50%;}</style>');
     $('html > head').append(style);
 
-    this.scan();
+    setTimeout(this.scan.bind(this),3000);
   }
 
   /**
@@ -167,26 +167,24 @@ class PokeScan {
 
     var icons = $('.leaflet-marker-icon');
     var rareFound = false;
-    var rares = '';
-
+    var rares = [];
+    console.log('SCanning',icons.length);
     for(var i in icons){
       var re = /([\w+]+).\w+\s*$/;
       var str = icons[i].src;
       var m = re.exec(str);
       var id = m[1];
       if(this.rarePokemon.indexOf(parseInt(id)) > -1){
-        var zid = $(icons[i]).parent().css('z-index');
-        if(this.foundRares.indexOf(zid) == -1){
+        if(! $(icons[i]).hasClass('rare')){
           $(icons[i]).addClass('rare');
-          this.foundRares.push(zid);
           rareFound = true;
-          rares += this.pokedex[id] + ' ';
+          rares.push(this.pokedex[id]);
         }
       }
     }
 
     if(rareFound){
-      var rareMsg = 'Rare Pokemon found: ' + rares;
+      var rareMsg = 'Rare Pokemon found: ' + rares.join(", ");
       if(this.playSounds){
         this.playSound();
         if(this.showAlerts){
