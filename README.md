@@ -1,5 +1,5 @@
 # PokéVision Autoscanner
-This extension notifies you when rare Pokemon are nearby.
+This extension notifies you when rare Pokemon are nearby. The extension is based on bookmarklet code created by Dan Leveille and available at http://lev.me/pokevision.
 
 ## Installation
 
