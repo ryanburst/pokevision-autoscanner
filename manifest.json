@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "PokéVision Autoscan",
+  "description": "This extension notifies you when rare Pokemon are nearby.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://pokevision.com/*"],
+      "js": ["jquery-3.1.0.min.js","autoscan.js"]
+    }
+  ],
+  "permissions": [
+    "notifications"
+  ]
+}
