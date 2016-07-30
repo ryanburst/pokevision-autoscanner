@@ -233,7 +233,7 @@ class Messenger {
    *
    * @param  {String} message The message sent to the user
    */
-  send(message) {
+  send(message, iconID) {
     // Use an alert if the user hasn't granted permission or they just
     // dont want to use chrome notifications
     if(this.type !== "notifications" || Notification.permission !== "granted") {
@@ -241,8 +241,8 @@ class Messenger {
       return alert(message);
     }
 
-    var notification = new Notification('Notification title', {
-      icon: 'https://raw.githubusercontent.com/ryanburst/pokevision-autoscanner/master/js/icon.png',
+    var notification = new Notification('Rare Pokemon Found', {
+      icon: 'http://ugc.pokevision.com/images/pokemon/' + iconID + '.png',
       body: message,
     });
   }
@@ -336,11 +336,13 @@ class PokeScan {
    * and add them to a list so that we can notify the user some were found.
    */
   scan() {
-    var pokemonFound = this.findSpecificPokemon();
-
+    var scanResults = this.findSpecificPokemon();
+    var pokemonFound = scanResults[0];
+    var iconID = scanResults[1];
+    
     // Alert the user of the pokemon that were found
     if(pokemonFound.length){
-      this.alert(pokemonFound);
+      this.alert(pokemonFound,iconID);
     }
 
     // Initiates another PokeVision
@@ -360,6 +362,7 @@ class PokeScan {
      // DOM elements representing Pokemon on the map
     var icons = $('.leaflet-marker-icon');
     var rares = [];
+    var iconID;
 
     for(var i in icons) {
       // Get the ID from the image source URL
@@ -373,11 +376,16 @@ class PokeScan {
         if( ! $(icons[i]).hasClass('rare') ) {
           $(icons[i]).addClass('rare');
           rares.push(this.pokedex[id]);
+
+          // Save the first Pokemon's ID to show an icon
+          if(typeof iconID == 'undefined'){
+            iconID = id;
+          }
         }
       }
     }
 
-    return rares;
+    return [rares, iconID];
   }
 
   /**
@@ -396,15 +404,15 @@ class PokeScan {
    *
    * @param  {Array} rares Pokemon names
    */
-  alert(rares) {
-    var msg = 'Rare Pokemon found: ' + rares.join(", ");
+  alert(rares,iconID) {
+    var msg = rares.join(", ");
     if(this.playSounds){
       this.playSound();
       if(this.showAlerts){
-        setTimeout(this.messenger.send.bind(this.messenger,msg),100);
+        setTimeout(this.messenger.send.bind(this.messenger,msg,iconID),100);
       }
     } else if(this.showAlerts){
-      this.messenger.send(msg);
+      this.messenger.send(msg,iconID);
     }
   }
 }
