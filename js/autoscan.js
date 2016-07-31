@@ -6,6 +6,7 @@
  * and alert you to rare pokemon that show up via their scans.
  *
  * @author  Ryan Burst
+ * @author  Dan Leveille
  * @link https://github.com/ryanburst/pokevision-autoscanner
  */
 
@@ -55,7 +56,7 @@ class Rares {
       // 40, // Wigglytuff
       // 41, // Zubat
       42, // Golbat
-      43, // Oddish
+      // 43, // Oddish
       44, // Gloom
       45, // Vileplume
       // 46, // Paras
@@ -81,7 +82,7 @@ class Rares {
       // 66, // Machop
       // 67, // Machoke
       68, // Machamp
-      69, // Bellsprout
+      // 69, // Bellsprout
       70, // Weepinbell
       71, // Victreebel
       // 72, // Tentacool
@@ -339,7 +340,7 @@ class PokeScan {
     var scanResults = this.findSpecificPokemon();
     var pokemonFound = scanResults[0];
     var iconID = scanResults[1];
-    
+
     // Alert the user of the pokemon that were found
     if(pokemonFound.length){
       this.alert(pokemonFound,iconID);
@@ -360,7 +361,7 @@ class PokeScan {
    */
   findSpecificPokemon() {
      // DOM elements representing Pokemon on the map
-    var icons = $('.leaflet-marker-icon');
+    var icons = $('.leaflet-marker-icon:not(.leaflet-clickable');
     var rares = [];
     var iconID;
 
